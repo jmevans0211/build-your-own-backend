@@ -18,6 +18,16 @@ app.get('/api/v1/continents', (request, response) => {
     })
 })
 
+app.get('/api/v1/countries', (request, response) => {
+  database('countries').select()
+    .then((countries) => {
+      response.status(200).json(countries)
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    })
+})
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
 });
