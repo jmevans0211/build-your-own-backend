@@ -14,7 +14,7 @@ const createContinent = (knex, continent) => {
         countryPromises.push(
           createCountry(knex, {
             country: country.country,
-            happinessScore: country.happinessScore,
+            happiness_score: country.happinessScore,
             continent_id: continentId[0]
           })
         )

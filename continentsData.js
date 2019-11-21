@@ -21,7 +21,7 @@ const continents = [
   },
   {
     id: '6',
-    continent: 'Asia',
+    continent: 'Europe',
     landArea: 3943281
   },
   {
