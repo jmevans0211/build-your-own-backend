@@ -4,7 +4,6 @@ exports.up = knex => {
       table.increments('id').primary();
       table.string('continent');
       table.integer('land_area');
-
       table.timestamps(true, true);
     }),
 
@@ -15,7 +14,6 @@ exports.up = knex => {
       table.integer('continent_id').unsigned();
       table.foreign('continent_id')
         .references('continents.id');
-
       table.timestamps(true, true);
     })
   ])
