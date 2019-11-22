@@ -15,8 +15,8 @@ app.get('/api/v1/continents', (request, response) => {
     })
     .catch((error) => {
       response.status(500).json({ error });
-    })
-})
+    });
+});
 
 app.get('/api/v1/countries', (request, response) => {
   database('countries').select()
@@ -25,8 +25,23 @@ app.get('/api/v1/countries', (request, response) => {
     })
     .catch((error) => {
       response.status(500).json({ error });
+    });
+});
+
+app.get('/api/v1/countries/:id', (request, response) => {
+  const { id } = request.params;
+  database('countries')
+    .where({ country_id: id })
+    .then((country) => {
+      if (country.length === 0) {
+        response.status(404).json(`No country with the id of ${id}`)
+      }
+      response.status(200).json(countries)
     })
-})
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
