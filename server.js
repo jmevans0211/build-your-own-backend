@@ -28,21 +28,6 @@ app.get('/api/v1/countries', (request, response) => {
     });
 });
 
-// app.get('/api/v1/countries/:id', (request, response) => {
-//   const { id } = request.params;
-//   database('countries')
-//     .where({ country_id: id })
-//     .then((country) => {
-//       if (country.length === 0) {
-//         response.status(404).json(`No country with the id of ${id}`)
-//       }
-//       response.status(200).json(country[0])
-//     })
-//     .catch((error) => {
-//       response.status(500).json({ error });
-//     });
-// });
-
 app.get('/api/v1/countries/:id', (request, response) => {
   database('countries').where('id', request.params.id).select()
     .then(country => {
@@ -50,7 +35,23 @@ app.get('/api/v1/countries/:id', (request, response) => {
         response.status(200).json(country);
       } else {
         response.status(404).json({ 
-          error: `Could not find party with id ${request.params.id}`
+          error: `Could not find country with an id of ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+app.get('/api/v1/continents/:id', (request, response) => {
+  database('continents').where('id', request.params.id).select()
+    .then(continent => {
+      if (continent.length) {
+        response.status(200).json(continent);
+      } else {
+        response.status(404).json({ 
+          error: `Could not find continent with an id of ${request.params.id}`
         });
       }
     })
