@@ -99,16 +99,19 @@ app.post('/api/v1/countries', (request, response) => {
 app.delete('/api/v1/countries/:id', (request, response) => {
   const { id } = request.params;
   database('countries')
-    .where({ id: id})
+    .where({ id: id}).select()
     .del()
-    .then(response => {
-      if(response === 0) {
-        return response.status(404).json(`Could not find country with the id of ${id}.`)
+    .then(results => {
+      if (results === 0) {
+        console.log('****', results)
+        response.status(404).json(`Could not find country with the id of ${id}.`)
+      } else {
+        console.log('*** in else --->', results)
+        response.status(200).json('Country was deleted with success.')
       }
-      response.status(200).json('Country was deleted with success.')
     })
     .catch(error => {
-      response.status(500).json(error)
+      response.status(500).json({error: 'Internal server error, please try again.'})
     })
 });
 
