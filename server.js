@@ -80,7 +80,6 @@ app.post('/api/v1/continents', (request, response) => {
 
 app.post('/api/v1/countries', (request, response) => {
   const country = request.body;
-  console.log('rewuqa.body', request.body)
 
   for(let requiredParameter of ['country', 'happiness_score']) {
     if(!country[requiredParameter]) {
@@ -96,6 +95,39 @@ app.post('/api/v1/countries', (request, response) => {
       response.status(500).json({ error })
     });
 });
+
+app.delete('/api/v1/countries/:id', (request, response) => {
+  const { id } = request.params;
+  console.log('id', id)
+  database('countries')
+    .where({ id: id})
+    .del()
+    .then(response => {
+      if(response === 0) {
+        return response.status(404).json('nope!')
+      }
+      response.status(200).json('deleted!')
+    })
+    .catch(error => {
+      response.status(500).json(error)
+    })
+})
+
+// app.delete('/api/v1/countries/:id', (response, request) => {
+//   database('countries').where('id', request.params.id).del()
+//   .then(country => {
+//     if (country.length) {
+//         response.status(200).send('Country was deleted.')
+//       } else {
+//         response.status(404).json({
+//           error: `Unable to find country with the id of ${request.params.id}`
+//         })
+//       }
+//     })
+//     .catch(error => {
+//       response.status(500).json({ error })
+//     })
+// });
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
