@@ -65,7 +65,7 @@ app.post('/api/v1/continents', (request, response) => {
 
   for(let requiredParameter of ['continent', 'land_area']) {
     if(!continent[requiredParameter]) {
-      return response.status(422).send({ error: 'Please provide a continent and its land area'})
+      return response.status(422).send({ error: `Expected format: { continent: <String>, land_area: <Integer>}. You're missing a ${requiredParameter} property.`})
     }
   }
 
@@ -83,7 +83,7 @@ app.post('/api/v1/countries', (request, response) => {
 
   for(let requiredParameter of ['country', 'happiness_score']) {
     if(!country[requiredParameter]) {
-      return response.status(422).send({ error: 'Please provide a country and its happiness score'})
+      return response.status(422).send({ error: `Expected format: { country: <String>, happiness_score: <Integer>}. You're missing a ${requiredParameter} property.`})
     }
   }
 
@@ -98,36 +98,19 @@ app.post('/api/v1/countries', (request, response) => {
 
 app.delete('/api/v1/countries/:id', (request, response) => {
   const { id } = request.params;
-  console.log('id', id)
   database('countries')
     .where({ id: id})
     .del()
     .then(response => {
       if(response === 0) {
-        return response.status(404).json('nope!')
+        return response.status(404).json(`Could not find country with the id of ${id}.`)
       }
-      response.status(200).json('deleted!')
+      response.status(200).json('Country was deleted with success.')
     })
     .catch(error => {
       response.status(500).json(error)
     })
-})
-
-// app.delete('/api/v1/countries/:id', (response, request) => {
-//   database('countries').where('id', request.params.id).del()
-//   .then(country => {
-//     if (country.length) {
-//         response.status(200).send('Country was deleted.')
-//       } else {
-//         response.status(404).json({
-//           error: `Unable to find country with the id of ${request.params.id}`
-//         })
-//       }
-//     })
-//     .catch(error => {
-//       response.status(500).json({ error })
-//     })
-// });
+});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
