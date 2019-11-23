@@ -75,9 +75,27 @@ app.post('/api/v1/continents', (request, response) => {
     })
     .catch(error => {
       response.status(500).json({ error })
-    })
+    });
+});
 
-})
+app.post('/api/v1/countries', (request, response) => {
+  const country = request.body;
+  console.log('rewuqa.body', request.body)
+
+  for(let requiredParameter of ['country', 'happiness_score']) {
+    if(!country[requiredParameter]) {
+      return response.status(422).send({ error: 'Please provide a country and its happiness score'})
+    }
+  }
+
+  database('countries').insert(country, 'id')
+    .then(country => {
+      response.status(201).json({ id: country[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    });
+});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
