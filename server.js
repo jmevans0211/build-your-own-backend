@@ -60,6 +60,25 @@ app.get('/api/v1/continents/:id', (request, response) => {
     });
 });
 
+app.post('/api/v1/continents', (request, response) => {
+  const continent = request.body;
+
+  for(let requiredParameter of ['continent', 'land_area']) {
+    if(!continent[requiredParameter]) {
+      return response.status(422).send({ error: 'Please provide a continent and its land area'})
+    }
+  }
+
+  database('continents').insert(continent, 'id')
+    .then(continent => {
+      response.status(201).json({ id: continent[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    })
+
+})
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`App is running on ${app.get('port')}`)
 });
