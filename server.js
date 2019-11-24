@@ -43,6 +43,23 @@ app.get('/api/v1/countries', (request, response) => {
     });
 });
 
+app.get('/api/v1/continents/:id', (request, response) => {
+  //handles get request for a single continent
+  database('continents').where('id', request.params.id).select()
+    .then(continent => {
+      if (continent.length) {
+        response.status(200).json(continent);
+      } else {
+        response.status(404).json({ 
+          error: `Could not find continent with an id of ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.get('/api/v1/countries/:id', (request, response) => {
   //handles get request for a single country
   database('countries').where('id', request.params.id).select()
@@ -61,22 +78,6 @@ app.get('/api/v1/countries/:id', (request, response) => {
     .catch(error => {
       response.status(500).json({ error: 'Internal server error. Please try again later.' });
       //a catch if the server is down 
-    });
-});
-
-app.get('/api/v1/continents/:id', (request, response) => {
-  database('continents').where('id', request.params.id).select()
-    .then(continent => {
-      if (continent.length) {
-        response.status(200).json(continent);
-      } else {
-        response.status(404).json({ 
-          error: `Could not find continent with an id of ${request.params.id}`
-        });
-      }
-    })
-    .catch(error => {
-      response.status(500).json({ error });
     });
 });
 
