@@ -9,11 +9,17 @@ https://country-happiness-score.herokuapp.com/
 ## Endpoints
 
 i. GET all continents
+
 ii. GET all countries
+
 iii. GET a single continent
+
 iv. GET a single country
+
 v. POST a new continent
+
 vi. POST a new country
+
 vii. DELETE and existing country
 
 ### GET all continents
@@ -22,9 +28,20 @@ This endpoint with get all continent info.
 
 `'/api/v1/continents'`
 
-Status | Response
---- | --- | ---
-200 | returns all continents
+### Response
+
+| Status        | Response               |
+| ------------- |:----------------------:|
+| 200           | returns all continents |
+
+### Response Parameters
+
+| Name          | Type      | Description                                 |
+| ------------- |:---------:| -------------------------------------------:|
+| id            | integer   | unique id for each individual continent     |
+| continent     | string    | continent name                              |
+| land_area     | integer   | the land area of continent in miles squared |
+
 
 ### GET all countries
 
