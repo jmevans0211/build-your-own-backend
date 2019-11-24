@@ -7,7 +7,7 @@ https://country-happiness-score.herokuapp.com/
 
 ***
 
-## Endpoints
+### Endpoints
 
 i. GET all continents
 
@@ -25,7 +25,7 @@ vii. DELETE and existing country
 
 ***
 
-### GET all continents
+## GET all continents
 
 This endpoint will get all continent info.
 
@@ -129,7 +129,7 @@ This endpoint will get all continent info.
 
 ***
 
-### GET all countries
+## GET all countries
 
 This endpoint will get all country info.
 
@@ -214,13 +214,13 @@ This endpoint will get all country info.
 
 ***
 
-### GET a single continent
+## GET a single continent
 
 This endpoint will get a single continent.
 
 `'/api/v1/continents/:id'`
 
-#### Query Parameters
+### Query Parameters
 <table>
   <tr>
     <th>Name</th>
@@ -234,7 +234,7 @@ This endpoint will get a single continent.
   </tr>
 </table>
 
-#### Response
+### Response
 <table>
   <tr>
     <th>Status</th>
@@ -250,7 +250,7 @@ This endpoint will get a single continent.
   </tr>
 </table>
 
-#### Response Parameters
+### Response Parameters
 
 <table style="width:100%">
   <tr>
@@ -291,12 +291,12 @@ This endpoint will get a single continent.
   
 ***
 
-### GET a single country
+## GET a single country
 This endpoint will get a single country.
 
 `'/api/v1/countries/:id'`
 
-#### Query Parameters
+### Query Parameters
 <table>
   <tr>
     <th>Name</th>
@@ -310,7 +310,7 @@ This endpoint will get a single country.
   </tr>
 </table>
 
-#### Response
+### Response
 <table>
   <tr>
     <th>Status</th>
@@ -326,7 +326,7 @@ This endpoint will get a single country.
   </tr>
 </table>
 
-#### Response Parameters
+### Response Parameters
 
 <table style="width:100%">
   <tr>
@@ -368,11 +368,11 @@ This endpoint will get a single country.
 
 ***
 
-### POST a new continent
+## POST a new continent
 
 `/api/v1/continents`
 
-#### Parameters
+### Parameters
 
 <table>
   <tr>
@@ -392,7 +392,7 @@ This endpoint will get a single country.
   </tr>
 </table>
 
-#### Response
+### Response
 
 <table>
   <tr>
@@ -414,11 +414,11 @@ This endpoint will get a single country.
 
 ***
 
-### POST a new country
+## POST a new country
 
 `/api/v1/countries`
 
-#### Parameters
+### Parameters
 
 <table>
   <tr>
@@ -438,7 +438,7 @@ This endpoint will get a single country.
   </tr>
 </table>
 
-#### Response
+### Response
 
 <table>
   <tr>
@@ -460,7 +460,7 @@ This endpoint will get a single country.
 
 ***
 
-### DELETE an existing country
+## DELETE an existing country
 
 `/api/v1/countries/:id`
 
