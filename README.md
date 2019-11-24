@@ -386,7 +386,7 @@ This endpoint will get a single country.
     <td>continent name</td>
   </tr>
   <tr>
-    <td>land_are</td>
+    <td>land_area</td>
     <td>integer</td>
     <td>the land area in miles squared</td>
   </tr>
@@ -415,6 +415,48 @@ This endpoint will get a single country.
 ***
 
 ### POST a new country
+
+`/api/v1/countries`
+
+#### Parameters
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>country</td>
+    <td>string</td>
+    <td>country name</td>
+  </tr>
+  <tr>
+    <td>happiness_score</td>
+    <td>integer</td>
+    <td>the country happiness score</td>
+  </tr>
+</table>
+
+#### Response
+
+<table>
+  <tr>
+    <th>200</th>
+    <th>422</th>
+  </tr>
+  <tr>
+    <td>Returns the id of the new country</td>
+    <td>`error: Expected format: { country: <String>, happiness_sore: <Integer>}. You're missing a ${requiredParameter} property.`</td>
+  </tr>
+</table>
+  
+<details>
+  <summary>Example</summary>
+  
+  `{ "id": 549 }`
+  
+</details>
 
 ***
 
