@@ -1,13 +1,5 @@
 # Country Happiness
 
-<table>
-  <tr>
-    <th></th>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-</table>
 
 This is an API to get the countries and their happiness ranking.
 
@@ -374,8 +366,56 @@ This endpoint will get a single country.
   ```
 </details
 
+***
+
 ### POST a new continent
 
+`/api/v1/continents`
+
+#### Parameters
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>continent</td>
+    <td>string</td>
+    <td>continent name</td>
+  </tr>
+  <tr>
+    <td>land_are</td>
+    <td>integer</td>
+    <td>the land area in miles squared</td>
+  </tr>
+</table>
+
+#### Response
+
+<table>
+  <tr>
+    <th>200</th>
+    <th>422</th>
+  </tr>
+  <tr>
+    <td>Returns the id of the new continent</td>
+    <td>`error: Expected format: { continent: <String>, land_area: <Integer>}. You're missing a ${requiredParameter} property.`</td>
+  </tr>
+</table>
+  
+<details>
+  <summary>Example</summary>
+  
+  `{ "id": 91 }`
+  
+</details>
+
+***
+
 ### POST a new country
+
+***
 
 ### DELETE an existing country
