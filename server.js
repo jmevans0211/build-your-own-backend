@@ -1,3 +1,7 @@
+// PLEASE NOTE:
+  //comments are made AFTER line of code
+  //a conscious effort was made to NOT copy and paste
+
 const express = require('express');
 //gets access the express framework
 const app = express();
@@ -46,24 +50,32 @@ app.get('/api/v1/countries', (request, response) => {
 app.get('/api/v1/continents/:id', (request, response) => {
   //handles get request for a single continent
   database('continents').where('id', request.params.id).select()
+  //getting access to the countries data pace and selecting the country with the corresponding id
     .then(continent => {
+      //waiting for success
       if (continent.length) {
+        //if there is a continent row with the corresponding id...
         response.status(200).json(continent);
+        //...respond with a 200 status code and json the continent info
       } else {
+        //if there is no continent with that id...
         response.status(404).json({ 
+          //... respond with a 404 status code and respond with the following string
           error: `Could not find continent with an id of ${request.params.id}`
         });
       }
     })
     .catch(error => {
+      //catching that there was no success
       response.status(500).json({ error });
+      //responding with a status code of 500 (internal server errror)
     });
 });
 
 app.get('/api/v1/countries/:id', (request, response) => {
   //handles get request for a single country
   database('countries').where('id', request.params.id).select()
-  //getting access to the countries data base, and then with the where statement, selecting that id corresponding to the id inputted into the url
+  //getting access to the countries database, and then with the where statement, selecting that id corresponding to the id inputted into the url
     .then(country => {
       if (country.length) {
         response.status(200).json(country);
