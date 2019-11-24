@@ -461,3 +461,20 @@ This endpoint will get a single country.
 ***
 
 ### DELETE an existing country
+
+`/api/v1/countries/:id`
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Response</th>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>'Country was deleted with success.'</td>
+  </tr>
+    <tr>
+    <td>404</td>
+    <td>`Could not find country with the id of ${id}.`</td>
+  </tr>
+</table>
