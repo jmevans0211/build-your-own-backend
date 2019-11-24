@@ -14,7 +14,7 @@ app.get('/api/v1/continents', (request, response) => {
       response.status(200).json(continents)
     })
     .catch((error) => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: 'Internal server error, please try again later.' });
     });
 });
 
@@ -24,7 +24,7 @@ app.get('/api/v1/countries', (request, response) => {
       response.status(200).json(countries)
     })
     .catch((error) => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: 'Internal server error, please try again later.' });
     });
 });
 
@@ -40,7 +40,7 @@ app.get('/api/v1/countries/:id', (request, response) => {
       }
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: 'Internal server error, please try again later.' });
     });
 });
 
@@ -56,7 +56,7 @@ app.get('/api/v1/continents/:id', (request, response) => {
       }
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(500).json({ error: 'Internal server error, please try again later.' });
     });
 });
 
@@ -74,7 +74,7 @@ app.post('/api/v1/continents', (request, response) => {
       response.status(201).json({ id: continent[0] })
     })
     .catch(error => {
-      response.status(500).json({ error })
+      response.status(500).json({ error: 'Internal server error, please try again later.' })
     });
 });
 
@@ -92,7 +92,7 @@ app.post('/api/v1/countries', (request, response) => {
       response.status(201).json({ id: country[0] })
     })
     .catch(error => {
-      response.status(500).json({ error })
+      response.status(500).json({ error: 'Internal server error, please try again later.' })
     });
 });
 
@@ -109,7 +109,7 @@ app.delete('/api/v1/countries/:id', (request, response) => {
       }
     })
     .catch(error => {
-      response.status(500).json({error: 'Internal server error, please try again.'})
+      response.status(500).json({error: 'Internal server error, please try again later.'})
     })
 });
 
