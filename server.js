@@ -70,7 +70,7 @@ app.get('/api/v1/continents/:id', (request, response) => {
     })
     .catch(error => {
       //catching that there was no success
-      response.status(500).json({ error });
+      response.status(500).json({ error: 'Internal server error, please try again later.' });
       //responding with a status code of 500 (internal server errror)
     });
 });
@@ -119,7 +119,7 @@ app.post('/api/v1/continents', (request, response) => {
       //... there will be a response with a 201 status code assigning the id to the 0 index
     })
     .catch(error => {
-      response.status(500).json({ error: 'Error adding a continent due to an internal server error. Please try again later.' })
+      response.status(500).json({ error: 'Internal server error, please try again later.' })
       //if there is a server error there will be a catch and this will be returned to the user
     });
 });
@@ -146,7 +146,7 @@ app.post('/api/v1/countries', (request, response) => {
       //... respond with a 201 status code and return the id
     })
     .catch(error => {
-      response.status(500).json({ error: 'Error adding a country due to an internal server error. Please try again later.' })
+      response.status(500).json({ error: 'Internal server error, please try again later.' })
       //if there is an issue with the server, send a 500 status code along with the above response
     });
 });
@@ -175,7 +175,7 @@ app.delete('/api/v1/countries/:id', (request, response) => {
       }
     })
     .catch(error => {
-      response.status(500).json({error: 'Internal server error, please try again.'})
+      response.status(500).json({error: 'Internal server error, please try again later.'})
       //when the request is not successful the catch is here to respond with a status code of 500 and the above string
     })
 });
