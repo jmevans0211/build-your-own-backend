@@ -183,5 +183,4 @@ app.delete('/api/v1/countries/:id', (request, response) => {
 app.listen(process.env.PORT || 3000, () => {
   //telling the express app to look for the correct port, defaulting to 3000 as in localhost 3000
   console.log(`App is running on ${app.get('port')}`)
-  //should show up in the console if running successfully
 });
