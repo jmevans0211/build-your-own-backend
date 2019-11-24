@@ -36,11 +36,86 @@ This endpoint with get all continent info.
 
 ### Response Parameters
 
-| Name          | Type      | Description                                 |
-| ------------- |:---------:| -------------------------------------------:|
-| id            | integer   | unique id for each individual continent     |
-| continent     | string    | continent name                              |
-| land_area     | integer   | the land area of continent in miles squared |
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>integer</td>
+    <td>unique id for each individual continent</td>
+  </tr>
+  <tr>
+    <td>continent</td>
+    <td>string</td>
+    <td>continent name</td>
+  </tr>
+    <tr>
+    <td>land_area</td>
+    <td>integer</td>
+    <td>the land area of continent in miles squared </td>
+  </tr>
+</table>
+
+<details>
+  <summary>Example Response</summary>
+
+```javascript
+[
+    {
+        "id": 79,
+        "continent": "Asia",
+        "land_area": 16921556,
+        "created_at": "2019-11-21T18:31:13.233Z",
+        "updated_at": "2019-11-21T18:31:13.233Z"
+    },
+    {
+        "id": 80,
+        "continent": "Africa",
+        "land_area": 11728037,
+        "created_at": "2019-11-21T18:31:13.240Z",
+        "updated_at": "2019-11-21T18:31:13.240Z"
+    },
+    {
+        "id": 81,
+        "continent": "North America",
+        "land_area": 9458315,
+        "created_at": "2019-11-21T18:31:13.239Z",
+        "updated_at": "2019-11-21T18:31:13.239Z"
+    },
+    {
+        "id": 82,
+        "continent": "South America",
+        "land_area": 6889679,
+        "created_at": "2019-11-21T18:31:13.240Z",
+        "updated_at": "2019-11-21T18:31:13.240Z"
+    },
+    {
+        "id": 83,
+        "continent": "Europe",
+        "land_area": 3943281,
+        "created_at": "2019-11-21T18:31:13.242Z",
+        "updated_at": "2019-11-21T18:31:13.242Z"
+    },
+    {
+        "id": 84,
+        "continent": "Australia",
+        "land_area": 3478238,
+        "created_at": "2019-11-21T18:31:13.244Z",
+        "updated_at": "2019-11-21T18:31:13.244Z"
+    },
+    {
+        "id": 85,
+        "continent": "Antarctica",
+        "land_area": 76567654,
+        "created_at": "2019-11-23T20:37:22.952Z",
+        "updated_at": "2019-11-23T20:37:22.952Z"
+    }
+]
+```
+</details>
 
 
 ### GET all countries
