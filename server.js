@@ -103,10 +103,8 @@ app.delete('/api/v1/countries/:id', (request, response) => {
     .del()
     .then(results => {
       if (results === 0) {
-        console.log('****', results)
         response.status(404).json(`Could not find country with the id of ${id}.`)
       } else {
-        console.log('*** in else --->', results)
         response.status(200).json('Country was deleted with success.')
       }
     })
