@@ -115,7 +115,7 @@ app.post('/api/v1/continents', (request, response) => {
 
   database('continents').insert(continent, 'id')
   //establishing the database we are looking for is the continents database
-  // the insert method will insert the continent (taken from the request body as described above) as well as an id
+  // the insert method will insert the continent (taken from the request body as described above) as well as return an id
   .then(continent => {
       //in the event that everything is successful and the user put in the correct parameters...
       response.status(201).json({ id: continent[0] })
@@ -142,7 +142,7 @@ app.post('/api/v1/countries', (request, response) => {
   }
 
   database('countries').insert(country, 'id')
-  //establishing the that we are looking to add to the countries database, taking in the country (defined above) and an id
+  //establishing the that we are looking to add to the countries database, taking in the country (defined above) and returning an id
     .then(country => {
       //when the request is successful with appropriate parameters in that request
       response.status(201).json({ id: country[0] })
