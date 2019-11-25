@@ -33,6 +33,7 @@ app.get('/api/v1/continents', (request, response) => {
     .catch((error) => {
       response.status(500).json({ error: 'Internal server error, please try again later' });
       //if the request is not successful, respond with the status code will be a 500 internal server error
+
     });
 });
 
@@ -47,6 +48,7 @@ app.get('/api/v1/countries', (request, response) => {
     .catch((error) => {
       response.status(500).json({ error: 'Internal server error, please try again later.' });
       //run the catch when the request has not been successful and respond with an internal server error (status code 500)
+
     });
 });
 
@@ -72,6 +74,7 @@ app.get('/api/v1/continents/:id', (request, response) => {
       //catching that there was no success
       response.status(500).json({ error: 'Internal server error, please try again later.' });
       //responding with a status code of 500 (internal server errror)
+
     });
 });
 
