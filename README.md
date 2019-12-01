@@ -3,9 +3,7 @@
 
 This is an API to get the countries and their happiness ranking.
 
-View **continents** on heroku @: https://country-happiness-score.herokuapp.com/api/v1/continents
-
-View **countries** on heroku @: https://country-happiness-score.herokuapp.com/api/v1/countries
+https://country-happiness-score.herokuapp.com
 
 ***
 
